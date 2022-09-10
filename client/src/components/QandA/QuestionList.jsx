@@ -8,6 +8,8 @@ const QuestionList = (props) => {
   const [filteredCount, setFilteredCount] = useState(0);
   const [count, setCount] = useState(2);
   const [modal, setModal] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [helpfulQuestions, setHelpfulQuestions] = useState({});
 
   let questions = props.questions
   let questionsCount = questions.length;
@@ -19,21 +21,25 @@ const QuestionList = (props) => {
   useEffect(() => {
     setFiltered(props.questions);
     setFilteredCount(props.questions.length);
+    setHelpfulQuestions(JSON.parse(localStorage.getItem('helpfulQuestions')));
   }, [props.questions]);
 
   let searchQuestion = (query) => {
     if (query === undefined || query.length <= 2) {
       setFiltered(questions);
       setFilteredCount(questions.length);
+      setSearchQuery('');
     } else {
       filteredQuestions = questions.filter(question =>
         question.question_body.toLowerCase().includes(query.toLowerCase()));
       if (filteredQuestions === []) {
         setFiltered(filteredQuestions);
         setFilteredCount(1);
+        setSearchQuery(query);
       } else {
         setFiltered(filteredQuestions);
         setFilteredCount(filteredQuestions.length);
+        setSearchQuery(query);
       }
     }
   }
@@ -55,8 +61,23 @@ const QuestionList = (props) => {
     toggleScrollLock();
   }
 
+  let renderNoSearchedQuestions = () => {
+    let style = {alignSelf: 'flex-start'}
+    return (
+      <>
+        <h2>No questions found with the current search.</h2>
+        <button
+          className='question-list-button'
+          onClick={handleModal}>
+          ADD A QUESTION +
+        </button>
+      </>
+    )
+  }
+
   return (
     <React.Fragment>
+<<<<<<< HEAD
       <QandASearch searchQuestion={searchQuestion} />
       <div className='question-body'>
         {modal &&
@@ -78,6 +99,56 @@ const QuestionList = (props) => {
                       productName={props.productName} />
                   )}
                 </div>
+=======
+    <QandASearch searchQuestion={searchQuestion} />
+    <div className='question-body'>
+      {modal &&
+        <QuestionModal
+          handleModal={handleModal}
+          productName={props.productName}
+          productId={props.productId}
+          getQuestions={props.getQuestions} />
+      }
+      {questionsCount ?
+        <>
+          {count < filteredCount ?
+            <>
+              <div className='question-list'>
+                {filtered.slice(0, count).map(question =>
+                  <Question
+                    key={question.question_id}
+                    question={question}
+                    productName={props.productName}
+                    searchQuery={searchQuery}
+                    helpfulQuestions={helpfulQuestions} />
+                )}
+              </div>
+              <div className='qandaButtons'>
+                <button
+                  className='question-list-button'
+                  onClick={handleShowMore}>
+                  MORE QUESTIONS
+                </button>
+                <button
+                  className='question-list-button'
+                  onClick={handleModal}>
+                  ADD A QUESTION +
+                </button>
+              </div>
+            </> :
+            <>
+              <div className='question-list'>
+                {filtered.map(question =>
+                  <Question
+                    key={question.question_id}
+                    question={question}
+                    productName={props.productName}
+                    searchQuery={searchQuery}
+                    helpfulQuestions={helpfulQuestions} />
+                )}
+              </div>
+              {filteredCount > 2 &&
+>>>>>>> edea062ce7e88f4e9d1771d1081308e16464220a
                 <div className='qandaButtons'>
                   <button
                     className='question-list-button'
@@ -89,6 +160,7 @@ const QuestionList = (props) => {
                     onClick={handleModal}>
                     ADD A QUESTION +
                   </button>
+<<<<<<< HEAD
                 </div>
               </> :
               <>
@@ -126,6 +198,23 @@ const QuestionList = (props) => {
           </>
         }
       </div>
+=======
+                </div>}
+            </>
+          }
+        </> :
+        <>
+          <h2>Got a Question? Press the button below!</h2>
+          <button
+            className='question-list-button'
+            onClick={handleModal}>
+            ADD A QUESTION +
+          </button>
+        </>
+      }
+      {(questionsCount && filtered.length === 0) && renderNoSearchedQuestions()}
+    </div>
+>>>>>>> edea062ce7e88f4e9d1771d1081308e16464220a
     </React.Fragment>
   )
 }
