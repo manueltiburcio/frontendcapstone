@@ -119,7 +119,7 @@ function StyleInformation({
 
   const relatedLink = (e) => {
     e.preventDefault();
-    window.location.replace("/#related");
+    window.location.replace("/#reviews");
   }
 
   const handleOutfitClick = () => {
@@ -238,11 +238,11 @@ function StyleInformation({
               <FaPinterest />
             </PinterestShareButton>
           </div>
-        </div >
+        </div>
         :
         <OrbitSpinner color="teal" />
       }
-    </div >
+    </div>
 
 
 

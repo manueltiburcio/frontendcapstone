@@ -5,10 +5,9 @@ import { AppContext } from '../AppContext.js';
 import ImageGallery from './ImageGallery.jsx';
 import StyleInformation from './StyleInformation.jsx';
 import ProductOverview from './ProductOverview.jsx';
-import { select } from 'underscore';
 import { FcCheckmark } from 'react-icons/fc';
 
-function Overview() {
+function Overview({ trackClick }) {
 
   const { selectedProduct,
     handleLocalClick,
@@ -73,6 +72,7 @@ function Overview() {
       setArrowRight(false);
     }
   }
+
 
 
 
@@ -172,7 +172,7 @@ function Overview() {
 
   return (
     <React.Fragment>
-      <div className='main-container'>
+      <div className='main-container' onClick={trackClick}>
         <ImageGallery
           product={product}
           stylesList={stylesList}

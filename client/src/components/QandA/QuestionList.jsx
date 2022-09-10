@@ -77,29 +77,6 @@ const QuestionList = (props) => {
 
   return (
     <React.Fragment>
-<<<<<<< HEAD
-      <QandASearch searchQuestion={searchQuestion} />
-      <div className='question-body'>
-        {modal &&
-          <QuestionModal
-            handleModal={handleModal}
-            productName={props.productName}
-            productId={props.productId}
-            getQuestions={props.getQuestions} />
-        }
-        {questionsCount ?
-          <>
-            {count < filteredCount ?
-              <>
-                <div className='question-list'>
-                  {filtered.slice(0, count).map(question =>
-                    <Question
-                      key={question.question_id}
-                      question={question}
-                      productName={props.productName} />
-                  )}
-                </div>
-=======
     <QandASearch searchQuestion={searchQuestion} />
     <div className='question-body'>
       {modal &&
@@ -148,57 +125,17 @@ const QuestionList = (props) => {
                 )}
               </div>
               {filteredCount > 2 &&
->>>>>>> edea062ce7e88f4e9d1771d1081308e16464220a
                 <div className='qandaButtons'>
                   <button
                     className='question-list-button'
-                    onClick={handleShowMore}>
-                    MORE QUESTIONS
+                    onClick={handleShowLess}>
+                    SHOW LESS
                   </button>
                   <button
                     className='question-list-button'
                     onClick={handleModal}>
                     ADD A QUESTION +
                   </button>
-<<<<<<< HEAD
-                </div>
-              </> :
-              <>
-                <div className='question-list'>
-                  {filtered.map(question =>
-                    <Question
-                      key={question.question_id}
-                      question={question}
-                      productName={props.productName} />
-                  )}
-                </div>
-                {filteredCount > 2 &&
-                  <div className='qandaButtons'>
-                    <button
-                      className='question-list-button'
-                      onClick={handleShowLess}>
-                      SHOW LESS
-                    </button>
-                    <button
-                      className='question-list-button'
-                      onClick={handleModal}>
-                      ADD A QUESTION +
-                    </button>
-                  </div>}
-              </>
-            }
-          </> :
-          <>
-            <h2>Got a Question? Press the button below!</h2>
-            <button
-              className='question-list-button'
-              onClick={handleModal}>
-              ADD A QUESTION +
-            </button>
-          </>
-        }
-      </div>
-=======
                 </div>}
             </>
           }
@@ -214,7 +151,6 @@ const QuestionList = (props) => {
       }
       {(questionsCount && filtered.length === 0) && renderNoSearchedQuestions()}
     </div>
->>>>>>> edea062ce7e88f4e9d1771d1081308e16464220a
     </React.Fragment>
   )
 }

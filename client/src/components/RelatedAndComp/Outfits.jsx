@@ -59,7 +59,7 @@ const Outfits = ({ outfits, current, outfitAdd, outfitRemove, avgRating, styleId
     from(rgba(0,0,0,0.2)), to(rgba(0,0,0,1)))` : null};
 
   return (
-    <div>
+    <div onClick={trackClick}>
       <div className='sectionTitle'><h2>YOUR OUTFIT</h2></div>
       <div className="carousel">
         <div className="rightArrow" onClick={shiftLeft}>{right.length ? <RiArrowRightSLine /> : null}</div>

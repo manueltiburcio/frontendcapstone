@@ -7,7 +7,7 @@ import { FacebookShareButton, TwitterShareButton, PinterestShareButton } from 'r
 import { TiTick } from 'react-icons/ti';
 
 
-function ProductOverview({ product, currentPhoto, currentStyle }) {
+function ProductOverview({ product, currentPhoto, currentStyle, trackClick }) {
   const [loading, setLoading] = useState(true);
   const [shareQuote, setShareQuote] = useState();
   const [shareHashtag, setShareHashtag] = useState();
@@ -31,7 +31,7 @@ function ProductOverview({ product, currentPhoto, currentStyle }) {
   }, [product])
 
   return (
-    <div>
+    <div onClick={trackClick}>
       {!loading ?
         <div className='prodview-container'>
           <div className='prodview-text'>

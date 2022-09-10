@@ -111,8 +111,8 @@ const Reviews = (props) => {
   };
 
   const handleStarClick = (value) => {
-    localStorage.setItem('searchStars', JSON.stringify({ ...searchStars, [value]: !searchStars[value] }));
-    let stars = ({ ...searchStars, [value]: !searchStars[value] })
+    localStorage.setItem('searchStars', JSON.stringify({...searchStars, [value]: !searchStars[value]}));
+    let stars = ({...searchStars, [value]: !searchStars[value]})
     setSearchStars(stars);
     setStarFilter(enableFilter(stars));
   };
@@ -175,43 +175,43 @@ const Reviews = (props) => {
       .catch((err) => console.log(err));
   };
 
-  return (
+  return(
     <div onClick={props.trackClick}>
       {initialized
-        ? <div className='reviewMain'>
-          <SideBar
-            renderStars={props.renderStars}
-            ratings={ratings}
-            totalReviews={totalReviews}
-            averageRating={averageRating}
-            ratingPercentages={ratingPercentages}
-            averageRecommended={averageRecommended}
-            characteristics={props.metaData.characteristics}
-            clickedStars={searchStars}
-            handleClick={handleStarClick}
-            starFilter={starFilter}
-            removeStarFilter={removeStarFilter}
-          />
-          <List
-            reviews={reviews}
-            renderStars={props.renderStars}
-            totalReviews={props.totalReviews}
-            characteristics={props.metaData.characteristics}
-            productName={props.productName}
-            productId={props.productId}
-            handleShowMore={handleShowMore}
-            filteredReviews={filteredReviews}
-            slicedReviews={slicedReviews}
-            sort={sort}
-            getReviews={getSortedReviews}
-            handleReport={handleReport}
-            onQueryChange={handleOnQueryChange}
-            onSortChange={handleOnSortChange}
-            handleSubmit={handleSubmitReview}
-            searchQuery={searchQuery}
-          />
-        </div>
-        : <OrbitSpinner color='green' />}
+      ?<div className='reviewMain'>
+        <SideBar
+          renderStars={props.renderStars}
+          ratings={ratings}
+          totalReviews={totalReviews}
+          averageRating={averageRating}
+          ratingPercentages={ratingPercentages}
+          averageRecommended={averageRecommended}
+          characteristics={props.metaData.characteristics}
+          clickedStars={searchStars}
+          handleClick={handleStarClick}
+          starFilter={starFilter}
+          removeStarFilter={removeStarFilter}
+        />
+        <List
+          reviews={reviews}
+          renderStars={props.renderStars}
+          totalReviews={props.totalReviews}
+          characteristics={props.metaData.characteristics}
+          productName={props.productName}
+          productId={props.productId}
+          handleShowMore={handleShowMore}
+          filteredReviews={filteredReviews}
+          slicedReviews={slicedReviews}
+          sort={sort}
+          getReviews={getSortedReviews}
+          handleReport={handleReport}
+          onQueryChange={handleOnQueryChange}
+          onSortChange={handleOnSortChange}
+          handleSubmit={handleSubmitReview}
+          searchQuery={searchQuery}
+        />
+      </div>
+      :<OrbitSpinner color='green' />}
     </div>
   )
 };

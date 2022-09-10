@@ -282,12 +282,12 @@ const App = () => {
                   metaData={metaData}
                   renderStars={renderStars}
                   productName={selectedProduct.name}
-                  productId={selectedProduct.id} />
+                  productId={selectedProduct.id}/>
               </div>
             </div>
           </StyledApp>}
-        {(!loading && !crashed) && <StyledApp className="spinner"><OrbitSpinner color='teal' /></StyledApp>}
-        {crashed && <FourOhFour reset={resetToFirstProduct} />}
+          {(!loading && !crashed) && <StyledApp className="spinner"><OrbitSpinner color='teal' /></StyledApp>}
+          {crashed && <FourOhFour reset={resetToFirstProduct}/>}
       </AppContext.Provider>
     </ThemeProvider>
   )

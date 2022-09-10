@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { VscTriangleDown } from 'react-icons/vsc';
 
 const Sort = (props) => {
 
@@ -27,11 +28,11 @@ const Sort = (props) => {
     <div className='reviewSortSection' onMouseLeave={handleDropDownLeave}>
       <div>{capitalizeSort()}</div>
       {dropDown &&
-        <div className='reviewSortDropDown'>
-          <p onClick={() => { handleClick('relevant') }}>Relevant</p>
-          <p onClick={() => { handleClick('helpful') }}>Helpful</p>
-          <p onClick={() => { handleClick('newest') }}>Newest</p>
-        </div>}
+      <div className='reviewSortDropDown'>
+        <p onClick={() => {handleClick('relevant')}}>Relevant</p>
+        <p onClick={() => {handleClick('helpful')}}>Helpful</p>
+        <p onClick={() => {handleClick('newest')}}>Newest</p>
+      </div>}
     </div>
   )
 };

@@ -85,7 +85,7 @@ const Tile = (props) => {
       return (
         <div className='reviewHelpful'>
           <p>Helpful?</p>
-          <p onClick={() => handleHelpful(true)}><u>Yes</u></p>
+          <p onClick={()=>handleHelpful(true)}><u>Yes</u></p>
           <p>({props.review.helpfulness})</p>
         </div>
       )
@@ -95,7 +95,7 @@ const Tile = (props) => {
   const handleHelpful = (value) => {
     if (value) {
       Parse.update(`reviews/`, `${props.review.review_id}/helpful`)
-        .catch((err) => console.log(err));
+      .catch((err) => console.log(err));
     }
 
     let review_id = props.review.review_id;
@@ -125,16 +125,15 @@ const Tile = (props) => {
     <div className='reviewTile'>
       <div className='reviewUserInfo'>
         <p>{renderName()}</p>
-        {props.review.recommend && <p><GrCheckmark /> I recommend this product</p>}
       </div>
       <div className='ratingStars'>{renderStars()}</div>
       <h3><b>{props.review.summary}</b></h3>
       <div className='reviewBodySection'>
         {parseBody()}
-        {(props.review.body.length > 250 && !showMore) && <p onClick={handleShowMore}><u>Show more...</u></p>}
+        {(props.review.body.length > 250 && !showMore) && <p className='reviewTileShowMore' onClick={handleShowMore}><u>Show more...</u></p>}
         {props.review.photos.length >= 1 &&
           <div className='reviewPhotoThumbnailSection'>
-            {props.review.photos.map((photo, index) => <img src={photo.url} className='reviewPhotoThumbnail' alt='Review photo thumbnail' onClick={handlePhotoClick} key={index} />)}
+            {props.review.photos.map((photo, index) => <img src={photo.url} className='reviewPhotoThumbnail' alt='Review photo thumbnail' onClick={handlePhotoClick} key={index}/>)}
           </div>
         }
         {props.review.response &&

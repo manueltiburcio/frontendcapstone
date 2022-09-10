@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 const PhotoOverlay = (props) => {
   const [start, setStart] = useState(false);
 
-  let style = { opacity: start ? '100%' : '0', transition: '0.15s' };
+  let style = {opacity: start ? '100%' : '0', transition: '0.15s'};
 
   useEffect(() => {
     setStart(true);
@@ -16,7 +16,7 @@ const PhotoOverlay = (props) => {
 
   return (
     <div className='reviewPhotoOverlay'>
-      <img style={style} className='reviewPhotoExpand' src={props.clickedPhoto} alt='Expanded image' />
+      <img style={style} className='reviewPhotoExpand' src={props.clickedPhoto} alt='Expanded image'/>
       <div className='reviewOverlayBackground' onClick={handleClick}></div>
     </div>
   )
