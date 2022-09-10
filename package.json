@@ -9,7 +9,9 @@
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "test:watch": "npm run test -- --watch",
     "coverage": "jest --collect--coverage",
-    "start": "npx webpack & node server/index.js"
+    "start": "npx webpack & node server/index.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d client"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "homepage": "https://github.com/rfp2207boyz2men/frontendcapstone#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "moment": "^2.29.4",
     "nodemon": "^2.0.19",
     "react": "^18.2.0",
