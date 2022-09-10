@@ -9,7 +9,7 @@
     "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "test:watch": "npm run test -- --watch",
     "coverage": "jest --collect--coverage",
-    "start": "npx webpack & node client/src/index.js"
+    "start": "npx webpack & node server/index.js"
   },
   "repository": {
     "type": "git",
