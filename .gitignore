@@ -8,8 +8,6 @@
 
 # production
 /build
-
-node_modules/
 config.js
 Archived.jsx
 Archives

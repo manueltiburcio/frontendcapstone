@@ -1,5 +1,5 @@
 import axios from 'axios';
-import CONFIG from '../../config.js';
+import CONFIG from '../../frontendcapstone/config';
 
 let url = 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/';
 

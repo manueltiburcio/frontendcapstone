@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import ReactDOM from 'react-dom'
 import Parse from '../../parse.js';
-import CONFIG from '../../../../config.js';
+import CONFIG from '../../../config.js';
 import { BsPlusCircle } from 'react-icons/bs';
 
 const AnswerModal = (props) => {
@@ -112,7 +112,7 @@ const AnswerModal = (props) => {
     <>
       <div
         className='portal-overlay'
-        onClick={props.handleModal}/>
+        onClick={props.handleModal} />
       <div
         className='answer-modal'
         onKeyDown={handleKeyDown}>
@@ -127,7 +127,7 @@ const AnswerModal = (props) => {
             type='text'
             maxLength='1000'
             onChange={handleChange}
-            required/>
+            required />
           <h4> Nickname: </h4>
           <textarea
             name='nickname'
@@ -135,7 +135,7 @@ const AnswerModal = (props) => {
             maxLength='60'
             placeholder='Example: jack543!'
             onChange={handleChange}
-            required/>
+            required />
           <small>For privacy reasons, do not use your full name or email address</small>
           <h4> Email address: </h4>
           <textarea
@@ -144,31 +144,31 @@ const AnswerModal = (props) => {
             maxLength='60'
             placeholder='Example: jack@email.com'
             onChange={handleChange}
-            required/>
+            required />
           <small>For authentication reasons, you will not be emailed</small>
           <h4> Upload your photos: </h4>
           <div className='answerInputPhotoSection'>
             {photos.length < 5 &&
               <div className='reviewInputPhotoButton' onClick={handlePhotoClick}>
-                <BsPlusCircle className='reviewInputPhotoButtonPlus'/>
+                <BsPlusCircle className='reviewInputPhotoButtonPlus' />
                 <p className='reviewInputPhotoButtonText'>Upload</p>
               </div>}
             {photos.length ?
-            photos.map((photo) => <img className='answerPhotoThumbnail' src={photo}/>) : null
+              photos.map((photo) => <img className='answerPhotoThumbnail' src={photo} />) : null
             }
           </div>
           {photos.length < 5 &&
-          <input
-            name='photos'
-            type='file'
-            style={{display:'none'}}
-            ref={hiddenFileInput}
-            onChange={handlePhotoInput} />
+            <input
+              name='photos'
+              type='file'
+              style={{ display: 'none' }}
+              ref={hiddenFileInput}
+              onChange={handlePhotoInput} />
           }
           <input
             type='submit'
             value='Submit'
-            >
+          >
           </input>
         </form>
       </div>
